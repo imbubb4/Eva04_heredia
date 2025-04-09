@@ -14,6 +14,9 @@
         h1 {
             text-align: center;
             margin: 20px 0;
+            color: #333;
+            font-size: 2em;
+            text-transform: uppercase;
         }
         .container {
             width: 80%;
@@ -28,39 +31,47 @@
             padding: 0;
         }
         li {
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #fafafa;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        li:hover {
+            background-color: #e9ecef;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
         a {
             text-decoration: none;
             color: #333;
-            font-size: 1.2em;
+            font-size: 1.3em;
+            font-weight: bold;
         }
         a:hover {
             color: #007bff;
         }
         .btn-agregar {
             display: inline-block;
-            background-color: #007bff;
+            background-color: #28a745;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-bottom: 20px;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
         }
         .btn-agregar:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Noticias de Último Momento</h1>
-        <a href="{% url 'agregar_noticia' %}" class="btn-agregar">Agregar Noticia</a>
+        <h1>Noticias y Fuleras de TECSUP</h1>
+        <a href="{% url 'agregar_noticia' %}" class="btn-agregar">Agregar tu noticia chupapi</a>
         <ul>
             {% for noticia in noticias %}
                 <li>

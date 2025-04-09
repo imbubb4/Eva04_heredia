@@ -5,67 +5,82 @@
     <title>{{ noticia.titulo }}</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
         }
         .container {
-            width: 60%;
-            margin: 50px auto;
+            width: 80%;
+            max-width: 900px;
+            margin: 20px;
             padding: 30px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         h1 {
-            text-align: center;
-            color: #333;
-            font-size: 2em;
+            color: #343a40;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
         .noticia-detail {
-            margin-top: 20px;
+            margin-top: 30px;
+            text-align: left;
         }
         .noticia-detail img {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             height: auto;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         .noticia-detail p {
             font-size: 1.1em;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #555;
             margin-bottom: 20px;
         }
         .fecha {
-            font-size: 1em;
-            color: #999;
-            text-align: right;
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-bottom: 30px;
         }
         a {
-            display: block;
+            display: inline-block;
             text-align: center;
             text-decoration: none;
             color: #007bff;
-            font-size: 1.1em;
-            margin-top: 20px;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
         }
         a:hover {
-            color: #0056b3;
+            background-color: #007bff;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>{{ noticia.titulo }}</h1>
+        <p class="fecha"><strong>Publicado el:</strong> {{ noticia.fecha_publicacion }}</p>
         <div class="noticia-detail">
+            <p>{{ noticia.contenido }}</p>
             {% if noticia.imagen %}
                 <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
             {% endif %}
-            <p>{{ noticia.contenido }}</p>
-            <p class="fecha">Publicado el: {{ noticia.fecha }}</p>
         </div>
         <a href="{% url 'lista_noticias' %}">Volver a la lista de noticias</a>
     </div>
