@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ noticia.titulo }}</title>
+</head>
+<body>
+    <h1>{{ noticia.titulo }}</h1>
+    <p><strong>Fecha:</strong> {{ noticia.fecha_publicacion }}</p>
+    <p><strong>Contenido:</strong> {{ noticia.contenido }}</p>
+
+    {% if noticia.imagen %}
+        <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+    {% endif %}
+
+    <p><a href="{% url 'lista_noticias' %}">Volver a la lista de noticias</a></p>
+</body>
+</html>
